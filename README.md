@@ -27,6 +27,9 @@ ListAnimated(
 ),
 ```
 
-## Example
+## Example 
 
-![Video](assets/video.gif)
+<p>
+    <img src="https://github.com/EmersonNog/animated_list_package_flutter/blob/main/assets/video.gif?raw=true"/> 
+</p>
+
