@@ -1,39 +1,35 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Animated List
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+![Teste](https://github.com/hnvn/flutter_shimmer/workflows/unit%20test/badge.svg) 
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+A package that allows you to easily add transition and glow effects to a list.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## How to use
 
-## Features
+Example of how to add the dependency in your `pubspec.yaml` file:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  animated_list: ^0.0.1 
 ```
 
-## Additional information
+Example of how to implement it in your project
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+import 'package:list_animated/list_animated.dart';
+``` 
+
+```dart
+ListAnimated(
+  icon: Icons.star,
+  color: Colors.amber,
+  text: "Animated List Item",
+),
+```
+
+## Example
+
+<video width="320" height="240" controls>
+  <source src="assets/video.mp4" type="video/mp4">
+  Seu navegador não suporta a tag de vídeo.
+</video>
