@@ -15,7 +15,7 @@ Example of how to add the dependency in your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  animated_list: ^0.0.1 
+  animated_list: ^0.0.4
 ```
 
 Example of how to implement it in your project
