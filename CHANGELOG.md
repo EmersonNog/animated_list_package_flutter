@@ -1,3 +1,3 @@
-## 0.0.1
+## 0.0.2
 
-* Animated List Initial Version.
+* Animated List Second Version.
