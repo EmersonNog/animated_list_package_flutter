@@ -1,6 +1,6 @@
 name: animated_list
 description: A custom animated list widget for Flutter
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/EmersonNog/animated_list_package_flutter
 
 environment:

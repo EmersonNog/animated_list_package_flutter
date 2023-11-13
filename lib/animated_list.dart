@@ -3,18 +3,28 @@ library list_animated;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:shimmer/shimmer.dart';  
+import 'package:shimmer/shimmer.dart';
 
 class ListAnimated extends StatefulWidget {
   final IconData icon;
-  final Color color;
+  final Color colorIcon;
+  final Color colorText;
   final String text;
+  final double? horizontalOffset;
+  final Duration? duration;
+  final Color? colorShine;
+  final Color? colorBorder;
 
   const ListAnimated({
     Key? key,
     required this.icon,
-    required this.color,
+    required this.colorIcon,
+    required this.colorText,
     required this.text,
+    this.horizontalOffset,
+    this.duration,
+    this.colorShine,
+    this.colorBorder,
   }) : super(key: key);
 
   @override
@@ -33,12 +43,12 @@ class ListAnimatedState extends State<ListAnimated>
     // Configurar controladores de animação
     _slideController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: widget.duration ?? const Duration(seconds: 2),
     );
 
     _fadeController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: widget.duration ?? const Duration(seconds: 2),
     );
 
     // Iniciar animações
@@ -55,13 +65,14 @@ class ListAnimatedState extends State<ListAnimated>
 
   @override
   Widget build(BuildContext context) {
-    return Material( // Adicionando um Material como ancestral mais próximo
+    return Material(
+      // Adicionando um Material como ancestral mais próximo
       child: AnimationLimiter(
         child: Column(
           children: AnimationConfiguration.toStaggeredList(
-            duration: const Duration(seconds: 2),
+            duration: widget.duration ?? const Duration(seconds: 2),
             childAnimationBuilder: (widget) => SlideAnimation(
-              horizontalOffset: 50.0,  // Ajuste conforme necessário
+              horizontalOffset: widget is ListAnimated ? widget.horizontalOffset : 50.0,
               curve: Curves.fastEaseInToSlowEaseOut,
               child: FadeInAnimation(
                 child: widget,
@@ -71,24 +82,19 @@ class ListAnimatedState extends State<ListAnimated>
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: ListTile(
-                  shape: const StadiumBorder(
+                  shape: StadiumBorder(
                     side: BorderSide(
-                      color: Color.fromARGB(115, 218, 211, 211),
+                      color: widget.colorBorder ?? const Color.fromARGB(115, 218, 211, 211),
                     ),
                   ),
                   leading: Icon(
                     widget.icon,
-                    color: widget.color,
+                    color: widget.colorIcon,
                   ),
                   title: Shimmer.fromColors(
-                    baseColor: Colors.white,
-                    highlightColor: Colors.grey.shade300,
-                    child: Text(
-                      widget.text,
-                      style: const TextStyle(
-                        color: Color.fromARGB(222, 255, 255, 255),
-                      ),
-                    ),
+                    baseColor: widget.colorText,
+                    highlightColor: widget.colorShine ?? Colors.grey.shade300,
+                    child: Text(widget.text),
                   ),
                 ),
               ),

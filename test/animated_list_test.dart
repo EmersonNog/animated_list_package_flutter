@@ -7,8 +7,13 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: ListAnimated(
         icon: Icons.star,
-        color: Colors.blue,
-        text: 'Teste',
+        colorBorder: Colors.grey,
+        colorShine: Colors.amber,
+        duration: Duration(seconds: 2),
+        horizontalOffset: 500,
+        text: 'Teste', 
+        colorIcon: Colors.red, 
+        colorText: Colors.black,
       ),
     ));
   });
